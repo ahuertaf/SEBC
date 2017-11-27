@@ -1,6 +1,7 @@
-Aqui configuro el SWAP
-<code>
-[root@elephant ~]# sysctl -w vm.swappiness=1
-vm.swappiness = 1
+# Aqui configuro el SWAP
 
- </code>
+```sh
+[root@elephant ~]# sysctl -w vm.swappiness=1
+vm.swappiness =1 
+```
+
