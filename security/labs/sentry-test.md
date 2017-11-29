@@ -1,4 +1,4 @@
-Verify user privileges
+# Verify user privileges
 
 Authenticate your user as a Kerberos principal
 Use beeline to confirm your principal sees no tables
@@ -43,7 +43,7 @@ INFO  : OK
 
 ```
 
-Create a Sentry role with full authorization
+# Create a Sentry role with full authorization
 
 In beeline:
 CREATE ROLE sentry_admin;
@@ -105,7 +105,7 @@ INFO  : OK
 6 rows selected (0.298 seconds)
 ```
 
-Create additional test users
+# Create additional test users
 
 Add new users to all cluster nodes
 $ sudo groupadd selector
@@ -134,7 +134,7 @@ Re-enter password for principal "ferdinand@VINKOS.COM":
 Principal "ferdinand@VINKOS.COM" created.
 ```
 
-Create test roles
+# Create test roles
 
 Login to beeline as your admin user
 CREATE ROLE reads;
@@ -163,7 +163,7 @@ INFO  : OK
 No rows affected (0.085 seconds)
 ```
 
-Grant read privilege for all tables to reads
+# Grant read privilege for all tables to reads
 
 GRANT SELECT ON DATABASE default TO ROLE reads;
 GRANT ROLE reads TO GROUP selector;
@@ -191,7 +191,7 @@ INFO  : OK
 No rows affected (0.099 seconds)
 ```
 
-Grant read privilege for default.sample07 only to 'writes':
+# Grant read privilege for default.sample07 only to 'writes':
 
 REVOKE ALL ON DATABASE default FROM ROLE writes;
 GRANT SELECT ON default.sample_07 TO ROLE writes;
@@ -228,7 +228,7 @@ INFO  : Completed executing command(queryId=hive_20171129201515_308ac724-9d29-47
 INFO  : OK
 No rows affected (0.099 seconds)
 ```
-kinit as george, then login to beeline
+# kinit as george, then login to beeline
 
 kinit as george, login to beeline, and use SHOW TABLES;
 george should be able to see all tables

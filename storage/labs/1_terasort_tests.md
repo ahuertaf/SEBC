@@ -15,7 +15,7 @@ The full teragen and command you used and the job output
 The same for terasort
 Include the time result of each job
 
-#Teragen
+# Teragen
 Comando
 ```sh
 time hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce/hadoop-examples.jar teragen -Dmapred.map.tasks=4 -Ddfs.block.size=1048576 100000000 /user/admin/ahuertaf/test
@@ -97,7 +97,7 @@ user	0m4.659s
 sys	0m0.270s
 ```
 
-#Terasort
+# Terasort
 
 Comando
 ```sh

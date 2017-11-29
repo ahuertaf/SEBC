@@ -1,6 +1,6 @@
-#Preinstall
+# Preinstall
 
-##1.- Configuración de SWAP
+## 1.- Configuración de SWAP
 
 ```sh
 [root@elephant ~]# sysctl -w vm.swappiness=1
@@ -18,7 +18,7 @@ Verificamos el cambio esta aplicado
 [root@elephant ~]# sysctl -a | grep swapp 
 vm.swappiness = 1
 ```
-##2,3.- Atributos de Volumenes
+## 2,3.- Atributos de Volumenes
 
 ```sh
 [root@elephant ~]# lsblk -fs
@@ -31,7 +31,8 @@ xvdb   ext4         ba2a8bba-5f2b-4c82-9404-6bf819b10aef /data/disk0
 xvdc   ext4         68edb13b-beb2-4ba1-8cee-8ccffcf2295c /data/disk1
 ```
 
-##4.- Deshabilitando Transparent HugePages (THP)
+## 4.- Deshabilitando Transparent HugePages (THP)
+
 ```sh
 [root@elephant ~]# cat /sys/kernel/mm/transparent_hugepage/enabled
 [always] madvise never
@@ -50,7 +51,8 @@ always madvise [never]
 [root@elephant ~]# cat /sys/kernel/mm/transparent_hugepage/defrag
 always madvise [never]
 ```
-##5.- Configuracion de Red
+## 5.- Configuracion de Red
+
 ```sh
 ifconfig
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
@@ -70,7 +72,8 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-##6.- Reverse host lookups 
+## 6.- Reverse host lookups 
+
 ```sh
 [hduser@elephant ~]$ getent hosts $(hostname -a)
 127.0.0.1       localhost localhost.localdomain localhost4 localhost4.localdomain4
@@ -81,7 +84,8 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 172.31.35.136   lion
 172.31.45.253   monkey
 ```
-##7.- nscd en ejecución
+## 7.- nscd en ejecución
+
 ```sh
 systemctl status nscd
 ● nscd.service - Name Service Cache Daemon
@@ -103,7 +107,8 @@ nov 27 13:50:50 elephant.vinkos nscd[12421]: 12421 stat failed for file `/etc/ne
 nov 27 13:50:50 elephant.vinkos nscd[12421]: 12421 Access Vector Cache (AVC) started
 nov 27 13:50:50 elephant.vinkos systemd[1]: Started Name Service Cache Daemon.
 ```
-##8.- ntpd en ejecución
+## 8.- ntpd en ejecución
+
 ```sh
 systemctl status ntpd
 ● ntpd.service - Network Time Service
@@ -126,7 +131,7 @@ nov 27 13:52:37 elephant.vinkos ntpd[12454]: 0.0.0.0 c016 06 restart
 nov 27 13:52:37 elephant.vinkos ntpd[12454]: 0.0.0.0 c012 02 freq_set kernel 61.964 PPM
 ```
 
-##Deshabilitando el chrony, tuned y firewalld
+## Deshabilitando el chrony, tuned y firewalld
 
 Validamos el estatus actual
 

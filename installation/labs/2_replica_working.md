@@ -1,5 +1,5 @@
-#Instalación de MariaDB con repicación
-##1.- Instalación
+# Instalación de MariaDB con repicación
+## 1.- Instalación
 
 ```sh
 [root@elephant ~]# yum -y install MariaDB-server MariaDB-client
@@ -57,7 +57,7 @@ Instalado:
 ¡Listo!
 ```
 
-##2.-You should not need to build a /etc/my.cnf file to start your MySQL server
+## 2.-You should not need to build a /etc/my.cnf file to start your MySQL server
 
 ```sh
 [mysqld]
@@ -67,7 +67,7 @@ replicate-do-db=employees
 bind-address=0.0.0.0
 ```
 
-##3.- Start the mysqld service.
+## 3.- Start the mysqld service.
 
 ```sh
 [root@elephant ~]# systemctl start mariadb
@@ -105,7 +105,7 @@ UNIX socket		/var/lib/mysql/mysql.sock
 Uptime:			13 min 6 sec
 ```
 
-##4.-Use /usr/bin/mysql_secure_installation to:
+## 4.-Use /usr/bin/mysql_secure_installation to:
 
 ```sh
 [root@elephant ~]# sudo mysql_secure_installation
@@ -175,14 +175,14 @@ installation should now be secure.
 Thanks for using MariaDB!
 ```
 
-##5.-On the master MySQL node, grant replication privileges for your replica node:
+## 5.-On the master MySQL node, grant replication privileges for your replica node:
 
 ```sh
 MariaDB [(none)]> GRANT REPLICATION SLAVE ON *.* TO 'root'@'horse' IDENTIFIED BY 'password';
 Query OK, 0 rows affected (0.00 sec)
 ```
 
-##6.-In a second terminal session, log into the MySQL master and show its status:
+## 6.-In a second terminal session, log into the MySQL master and show its status:
 
 ```sh
 MariaDB [(none)]> SHOW MASTER STATUS;
@@ -194,7 +194,7 @@ MariaDB [(none)]> SHOW MASTER STATUS;
 1 row in set (0.00 sec)
 ```
 
-##7.-Login to the replica server and configure a connection to the master:
+## 7.-Login to the replica server and configure a connection to the master:
 
 ```sh
 MariaDB [(none)]> CHANGE MASTER TO
@@ -209,7 +209,7 @@ MariaDB [(none)]> CHANGE MASTER TO
 Query OK, 0 rows affected (0.00 sec)
 ```
 
-##8.-Initiate slave operations on the replica
+## 8.-Initiate slave operations on the replica
 
 ```sh
 MariaDB [(none)]> START SLAVE;
